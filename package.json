@@ -1,0 +1,25 @@
+{
+  "name": "bluff-battle",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "netlify dev",
+    "dev:client": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build",
+    "check": "node --check netlify/functions/game.mjs && node --check src/main.js && vite build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^27.14.2",
+    "vite": "^8.3.5"
+  },
+  "overrides": {
+    "toml": "^5.0.1"
+  }
+}
