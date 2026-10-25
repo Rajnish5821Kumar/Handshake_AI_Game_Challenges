@@ -277,7 +277,8 @@ async function doAction(action, payload) {
   }
 }
 
-if (saved?.code && saved?.token) {
+const initialPlayer = readSavedPlayer();
+if (initialPlayer?.code && initialPlayer?.token) {
   syncState();
   refreshTimer = setInterval(syncState, 1400);
 } else {
