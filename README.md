@@ -33,6 +33,13 @@ The application uses Netlify Functions through the local Netlify dev server. `np
 3. Confirm the build settings use `npm run build` and `dist` as the publish directory. `netlify.toml` already configures the build, Functions directory, API rewrite, and SPA fallback.
 4. Deploy the site. Functions will not be able to access the database until both environment variables are set.
 
+## Deploy to Vercel
+
+1. Import this GitHub repository into Vercel and select the `main` branch.
+2. Vercel uses `vercel.json` to build with `npm run build` and publish `dist`. The `api/[action].mjs` adapter routes game API requests through the same validated server handler used by Netlify.
+3. In the Vercel project settings, add `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` as server-side environment variables for Production and Preview as needed. Do not expose the service-role key as a `VITE_` variable.
+4. Redeploy after setting the variables. Apply the Supabase schema before testing game actions.
+
 ## Test with two browser windows or devices
 
 1. Open the deployed URL (or local Netlify dev URL) in window/device A. Enter a name and create a room. Share the displayed five-character room code.
